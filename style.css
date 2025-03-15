@@ -1,0 +1,951 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    padding-top: 60px; /* Ensure content does not hide behind navbar */
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2c3e50;
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f39c12;
+}
+
+.menu-button {
+    display: none;
+    width: 35px;
+    cursor: pointer;
+    background-color: white;
+}
+
+/* Hide dropdown content by default */
+.navbar .dropdown-content {
+    display: none;
+}
+
+/* Show dropdown content when the parent is hovered or clicked */
+.navbar .dropdown.active .dropdown-content {
+    display: block;
+}
+
+
+
+
+
+
+
+/* Home Section */
+
+#home {
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.8), rgba(255, 102, 0, 0.8));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    padding: 50px 20px;
+    opacity: 0; /* Initially set opacity to 0 */
+    animation: fadeIn 2s ease-in-out forwards; /* Added fade-in animation */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.header-content {
+    max-width: 90%;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+#home h1,#home h2,#home p {
+    margin: 10px 0;
+    opacity: 0; /* Set initial opacity to 0 */
+    animation: fadeInText 2s ease-in-out forwards; /* Add animation to text */
+}
+
+/* Fade-in animation for text */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#home h2 {
+    font-size: 2.5rem;
+}
+
+#home h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+#home .subheading-container {
+    margin-top: 20px;
+}
+
+#home .subheading-container p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* Line between headings */
+#home .line {
+    width: 60px;
+    height: 4px;
+    background-color: #fff;
+    margin: 20px auto;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 1200px) {
+    #home {
+        min-height: 100vh; /* Ensure the home section fills the screen */
+        padding: 80px 20px; /* Add some padding */
+    }
+    #home h1 {
+        font-size: 3rem;
+    }
+    #home h2 {
+        font-size: 2.2rem;
+    }
+    #home .subheading-container p {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #home {
+        min-height: 100vh; /* Ensure the home section fills the screen */
+        padding: 60px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        text-align: center; /* Center text */
+    }
+    #home h1 {
+        font-size: 2.5rem;
+    }
+    #home h2 {
+        font-size: 1.8rem;
+    }
+    #home .subheading-container p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #home {
+        min-height: 100vh; /* Ensure the home section fills the screen */
+        padding: 90px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        text-align: center; /* Center text */
+    }
+    #home h1 {
+        font-size: 2rem;
+    }
+    #home h2 {
+        font-size: 1.6rem;
+    }
+    #home .subheading-container p {
+        font-size: 0.9rem;
+    }
+    #home .line {
+        width: 40px;
+    }
+}
+
+
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2c3e50;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: left;
+    padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f39c12;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #2c3e50;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    /* Dropdown for mobile */
+    .dropdown-content {
+        position: relative;
+        display: block;
+        background-color: #2c3e50;
+        width: 100%;
+    }
+    .dropdown-content a {
+        padding: 12px;
+        text-align: left;
+    }
+}
+
+/* New Section: Mission + Goal */
+#subabout2 {
+    background: linear-gradient(to right, #183c55, #184e5e);
+    color: #ffffff; /* This will apply to all text by default */
+    padding: 100px 50px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+#subabout2 .initiative-header h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in-out;
+    color:#4c94e4; /* Ensure the header text color is white */
+}
+
+.subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 50px;
+    font-style: italic;
+    color: #ffcc00; /* Subtitle color stays yellow */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+#subabout2 .initiative-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    gap: 40px;
+}
+
+.content-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.5);
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards 0.5s;
+}
+
+/* Modify the content-text to be specific */
+#subabout2 .content-text {
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    padding: 30px;
+    font-size: 1.3rem;
+    line-height: 2.2;
+    max-width: 90%;
+    width: 90%;
+    margin: 0 auto;
+    color: #ffffff; /* Ensure content-text has white color */
+}
+
+#subabout2 .content-text p{
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    #subabout2 .content-text {
+        font-size: 1.2rem;
+        max-width: 95%; 
+    }
+}
+
+@media (max-width: 768px) {
+    #subabout2 .initiative-header h1 {
+        font-size: 2.5rem; /* Reduced font size for h1 */
+        word-wrap: break-word; /* Prevents text overflow */
+    }
+    .subtitle {
+        font-size: 1.2rem; /* Reduced font size for subtitle */
+        word-wrap: break-word; /* Prevents text overflow */
+    }
+    #subabout2 .content-text {
+        font-size: 1.3rem; /* Slightly larger font size for readability */
+        padding: 20px;
+        max-width: 90%; /* Increased width for better readability */
+        color: #ffffff; /* Ensures white text color on small screens */
+        margin: 0 auto; /* Centers the paragraph */
+    }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Our Team Section */
+#subabout1 {
+    background-color: #09a9d1;
+    padding: 100px 20px; /* Increase padding to make the section larger */
+    text-align: center;
+}
+
+.team-header h1 {
+    font-size: 4rem; /* Increase font size of the header */
+    font-weight: bold;
+    margin-bottom: 30px; /* Increase margin for better spacing */
+    color: #2c3e50;
+}
+
+.team-content {
+    display: flex;
+    justify-content: center;
+    gap: 80px; /* Increase gap between team members */
+    flex-wrap: wrap; /* Allow wrapping for better responsiveness */
+    margin-top: 40px; /* Add space between header and content */
+}
+
+.team-member {
+    background-color: #fff;
+    padding: 70px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Set a fixed width for the team member cards */
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px); /* Add hover effect for a dynamic feel */
+}
+
+.team-member h5 {
+    font-size: 2rem; /* Increase the size of the member name */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    font-size: 1.2rem; /* Adjust font size for the role */
+    color: #777;
+}
+
+/* Adjust for smaller screens */
+@media screen and (max-width: 768px) {
+    .team-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .team-member {
+        width: 100%; /* Ensure the cards take full width on smaller screens */
+        margin-bottom: 30px;
+    }
+}
+
+/* Get Involved Section */
+
+#get-involved1 {
+    padding: 80px 10%; /* Increased top padding */
+    background: whitesmoke; /* Soft lavender background */
+    color: #2f2f2f; /* Dark gray text */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    animation: fadeIn 1s ease-out;
+}
+
+.get-involved-header {
+    text-align: center;
+    margin-bottom: 40px; /* More space below the header */
+}
+
+.get-involved-header h1 {
+    font-size: 2.5rem;
+    color: #000000; /* Deep purple */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.get-involved-header .intro-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* First Section (Bullet points) */
+.bullet-section {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.bullet-section h3 {
+    font-size: 1.6rem;
+    color: #5e3c8b;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.bullet-section h4 {
+    font-size: 1.4rem;
+    color: #5e3c8b;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.bullet-section ul {
+    font-size: 1.1rem;
+    color: #333333;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.bullet-section ul li {
+    margin-bottom: 10px;
+}
+
+.bullet-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333333;
+}
+
+/* Second Section (Additional Details) */
+.details-section {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.details-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Register Link Styling */
+.register-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ff6f61;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.register-link:hover {
+    background-color: #ff4e38;
+    transform: scale(1.05);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #get-involved1 {
+        padding: 50px 5%;
+    }
+
+    .get-involved-header h1 {
+        font-size: 2rem;
+    }
+
+    .get-involved-header .intro-text {
+        font-size: 1rem;
+    }
+
+    .bullet-section,
+    .details-section {
+        padding: 20px;
+    }
+
+    .bullet-section h3,
+    .details-section h3 {
+        font-size: 1.4rem;
+    }
+
+    .bullet-section h4,
+    .details-section h4 {
+        font-size: 1.2rem;
+    }
+
+    .register-link {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .get-involved-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .get-involved-header .intro-text {
+        font-size: 0.95rem;
+    }
+
+    .bullet-section h3,
+    .details-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .bullet-section h4,
+    .details-section h4 {
+        font-size: 1.1rem;
+    }
+
+    .register-link {
+        font-size: 0.95rem;
+        padding: 8px 16px;
+    }
+}
+
+
+/* Community Initiative Section Styles */
+#subinitiative1 {
+    background-color: #f1f9fc;
+    padding: 50px 20px;
+}
+
+.initiative-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.initiative-header h1 {
+    font-size: 2.5rem;
+    color: #4A90E2;
+    font-weight: 700;
+}
+
+.initiative-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.initiative-content h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.initiative-content p {
+    font-size: 1.125rem;
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .get-involved-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .text-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .text-content h4 {
+        font-size: 1.25rem;
+    }
+
+    .text-content ul li {
+        font-size: 1rem;
+    }
+
+    .register-link {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .get-involved-header h1 {
+        font-size: 2rem;
+    }
+
+    .get-involved-header .intro-text {
+        font-size: 1rem;
+    }
+
+    .get-involved-content {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .text-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .text-content h4 {
+        font-size: 1.125rem;
+    }
+
+    .text-content ul li {
+        font-size: 1rem;
+    }
+
+    .register-link {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .initiative-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .initiative-content h2 {
+        font-size: 1.75rem;
+    }
+
+    .initiative-content p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .get-involved-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .get-involved-header .intro-text {
+        font-size: 0.95rem;
+    }
+
+    .get-involved-content {
+        padding: 0 5px;
+    }
+
+    .text-content h3 {
+        font-size: 1.25rem;
+    }
+
+    .text-content h4 {
+        font-size: 1rem;
+    }
+
+    .text-content ul li {
+        font-size: 0.95rem;
+    }
+
+    .register-link {
+        font-size: 0.95rem;
+        padding: 8px 18px;
+    }
+
+    .initiative-header h1 {
+        font-size: 2rem;
+    }
+
+    .initiative-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .initiative-content p {
+        font-size: 0.95rem;
+    }
+}
+
+.resource-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #b6e6f3;
+}
+
+.resource-header h1 {
+    font-size: 3rem;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.resource-header .subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.resource-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.link-card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.link-card h3 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.link-card p {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.donation-container {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.donation-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.donation-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.donate-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #007BFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.donate-button:hover {
+    background-color: #0056b3;
+}
+
+.donation-footer {
+    margin-top: 30px;
+    font-size: 1rem;
+    color: #888;
+}
+
+.donation-footer a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.donation-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.social {
+    margin: 20px 0;
+}
+
+.social a {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.social a:hover {
+    color: #1e90ff; /* Change to your desired hover color */
+}
+
+footer p {
+    font-size: 0.9em;
+    margin-top: 20px;
+    color: #ccc;
+}
+
+footer .aq{
+    color: white;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .social a {
+        font-size: 1.2em;
+    }
+}
